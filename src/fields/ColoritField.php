@@ -54,7 +54,7 @@ class ColoritField extends Field implements PreviewableFieldInterface
     // Public Methods
     // =========================================================================
 
-    public function init()
+    public function init():void
     {
         parent::init();
     }
@@ -64,7 +64,7 @@ class ColoritField extends Field implements PreviewableFieldInterface
         $this->presetMode = $on;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = [];
         $rules[] = [['paletteColors'], 'validatePaletteColors'];
@@ -172,7 +172,7 @@ class ColoritField extends Field implements PreviewableFieldInterface
         return empty($value->handle ?? '');
     }
 
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue($value, ElementInterface $element = null): mixed
     {
         if($value instanceof Color)
         {
@@ -196,7 +196,7 @@ class ColoritField extends Field implements PreviewableFieldInterface
         return null;
     }
 
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue($value, ElementInterface $element = null): mixed
     {
         $serialized = [];
         if($value instanceof Color)
@@ -210,7 +210,7 @@ class ColoritField extends Field implements PreviewableFieldInterface
         return parent::serializeValue($serialized, $element);
     }
 
-    public function getSettingsHtml()
+    public function getSettingsHtml(): string
     {
         $field = $this;
         $presets = [];

@@ -2,10 +2,12 @@
 namespace presseddigital\colorit\web\twig;
 
 use presseddigital\colorit\Colorit;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 use Craft;
 
-class Extension extends \Twig_Extension
+class Extension extends AbstractExtension
 {
     protected $colors;
 
@@ -25,11 +27,11 @@ class Extension extends \Twig_Extension
     public function getFilters(): array
     {
         return [
-            new \Twig_SimpleFilter('hexIsWhite', [$this->colors, 'hexIsWhite']),
-            new \Twig_SimpleFilter('hexIsBlack', [$this->colors, 'hexIsBlack']),
-            new \Twig_SimpleFilter('hexIsTransparent', [$this->colors, 'hexIsTransparent']),
-            new \Twig_SimpleFilter('hexToRgb', [$this->colors, 'hexToRgb']),
-            new \Twig_SimpleFilter('hexToRgba', [$this->colors, 'hexToRgba']),
+            new TwigFilter('hexIsWhite', [$this->colors, 'hexIsWhite']),
+            new TwigFilter('hexIsBlack', [$this->colors, 'hexIsBlack']),
+            new TwigFilter('hexIsTransparent', [$this->colors, 'hexIsTransparent']),
+            new TwigFilter('hexToRgb', [$this->colors, 'hexToRgb']),
+            new TwigFilter('hexToRgba', [$this->colors, 'hexToRgba']),
         ];
     }
 }

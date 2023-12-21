@@ -19,6 +19,7 @@ use presseddigital\colorit\web\twig\Extension;
 
 use Craft;
 use craft\base\Plugin;
+use craft\base\Model;
 use craft\services\Plugins;
 use craft\services\Fields;
 use craft\helpers\UrlHelper;
@@ -52,7 +53,7 @@ class Colorit extends Plugin
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '1.0.3';
+    public string $schemaVersion = '1.0.3';
 
     // Traits
     // =========================================================================
@@ -92,9 +93,9 @@ class Colorit extends Plugin
         Craft::info(Craft::t('colorit', '{name} plugin loaded', ['name' => $this->name]), __METHOD__);
     }
 
-    public function beforeInstall(): bool
+    public function beforeInstall(): void
     {
-        return true;
+        
     }
 
     public function afterInstallPlugin(PluginEvent $event)
@@ -106,7 +107,7 @@ class Colorit extends Plugin
         }
     }
 
-    public function getSettingsResponse()
+    public function getSettingsResponse(): mixed
     {
         return Craft::$app->controller->redirect(UrlHelper::cpUrl('colorit/settings'));
     }
@@ -119,7 +120,7 @@ class Colorit extends Plugin
     // Protected Methods
     // =========================================================================
 
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?Model
     {
         return new Settings();
     }

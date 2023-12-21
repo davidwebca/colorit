@@ -56,7 +56,10 @@
                 'heading' : 'Color #HEX',
                 'type'   : 'color'
             }
-        },
+        },        
+        allowAdd: true,
+        allowReorder: true,
+        allowDelete: true,
         rows: field.paletteColors,
         errors: (field.getErrors('paletteColors') ?? [])|unique
     }) }}

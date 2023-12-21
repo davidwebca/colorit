@@ -168,15 +168,17 @@ class Fields extends Component
                 'fields.id',
                 'fields.dateCreated',
                 'fields.dateUpdated',
-                'fields.groupId',
                 'fields.name',
                 'fields.handle',
                 'fields.context',
+                'fields.columnSuffix',
                 'fields.instructions',
+                'fields.searchable',
                 'fields.translationMethod',
                 'fields.translationKeyFormat',
                 'fields.type',
-                'fields.settings'
+                'fields.settings',
+                'fields.uid',
             ])
             ->from(['{{%fields}} fields'])
             ->orderBy(['fields.name' => SORT_ASC, 'fields.handle' => SORT_ASC]);
