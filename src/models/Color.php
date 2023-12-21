@@ -23,7 +23,7 @@ class Color extends Model
     // Public Properties
     // =========================================================================
 
-    public function init()
+    public function init(): void
     {
         parent::init();
     }
@@ -42,7 +42,7 @@ class Color extends Model
         return $this->getColor();
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['handle', 'string'];
